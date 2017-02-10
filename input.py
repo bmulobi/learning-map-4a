@@ -12,7 +12,7 @@ print("User ID")
 user_name=input("") # Enter name
 
 conn = sqlite3.connect('team.db')
-conn.execute("INSERT INTO user VALUES ('%s','%s');" % user_name,user_id)
+conn.execute("INSERT INTO user VALUES ('%s','%s');" % (user_name,user_id))
 
 print("Success")
 
