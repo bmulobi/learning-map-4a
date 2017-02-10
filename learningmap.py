@@ -2,6 +2,9 @@ import os
 import sqlite3 as lite
 import sys
 from view_skills import *
+from learningProg import *
+from update_skill_status import *
+from fxns import *
 
 class AppRun(object):
     def display_title(self):
@@ -68,10 +71,12 @@ while selection != 'q':
         input("Press Enter to continue")
 
     elif selection == 7:
-        view_studied_skills(user_id=3)
+        # learningProgress
         # print("Progress is \n")
         # app.display_last_event()
         input("Press Enter to continue")
+
+
 
     else:
         print("Invalid choice try again\n")
