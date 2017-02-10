@@ -1,27 +1,26 @@
-import sqlite as lite
+import sqlite3 as lite
 import sys
 
-def view_studied_skills(user_id){
+def view_studied_skills(user_id):
 	con = lite.connect("team")
 	with con:
 		cur = con.cursor()
-		sql = "SELECT * FROM user_skills WHERE userid="+user_id+"AND status=1"
+		sql = "SELECT * FROM userskill WHERE userid={} AND status=1".format(user_id)
 		cur.execute(sql);
 
 		rows = cur.fetchall()
 
 		for row in rows:
 			print(row)
-}
-def view_unstudied_skills(user_id){
-	con = lite.connect("team")
-	with con:
-		cur = con.cursor()
-		sql = "SELECT * FROM user_skills WHERE userid="+user_id+"AND status=1"
-		cur.execute(sql);
+			
+def view_unstudied_skills(user_id):
+    con = lite.connect("team")
+    with con:
+	    cur = con.cursor()
+	    sql = "SELECT * FROM userskill WHERE userid={} AND status=0".format(user_id)
+	    cur.execute(sql);
 
-		rows = cur.fetchall()
+	    rows = cur.fetchall()
 
-		for row in rows:
-			print(row)
-}
+	    for row in rows:
+		    print(row)
